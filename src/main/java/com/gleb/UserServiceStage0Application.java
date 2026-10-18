@@ -1,4 +1,4 @@
-package com.gleb.user_service_stage0;
+package com.gleb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
