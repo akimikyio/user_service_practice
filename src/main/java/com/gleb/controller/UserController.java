@@ -5,6 +5,8 @@ import com.gleb.dto.UserResponse;
 import com.gleb.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -19,7 +21,12 @@ public class UserController {
         return userService.createUser(request);
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/{id}")
+    public UserResponse getById(@PathVariable UUID id) {
+        return userService.getUserById(id);
+    }
+
+    @GetMapping("/email/{email}")
     public UserResponse getByEmail(@PathVariable String email) {
         return userService.getUserByEmail(email);
     }
