@@ -18,6 +18,14 @@ repositories {
 	mavenCentral()
 }
 
+sourceSets {
+	main {
+		java {
+			srcDir("build/generated/source/jooq/main")
+		}
+	}
+}
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-flyway")
 	implementation("org.springframework.boot:spring-boot-starter-jooq")
@@ -56,4 +64,8 @@ jooq {
 			}
 		}
 	}
+}
+
+tasks.named<JavaCompile>("compileJava") {
+	dependsOn("jooqCodegen")
 }
