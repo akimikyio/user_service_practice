@@ -28,4 +28,10 @@ public class UserService {
                 .map(record -> new UserResponse(record.getId(), record.getName(), record.getEmail()))
                 .orElseThrow(() -> new RuntimeException("Пользователь с email " + email + " не найден"));
     }
+
+    public UserResponse getUserById(UUID id) {
+        return userRepository.findById(id)
+                .map(record -> new UserResponse(record.getId(), record.getName(), record.getEmail()))
+                .orElseThrow(() -> new RuntimeException("Пользователь с ID " + id + " не найден"));
+    }
 }
