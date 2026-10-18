@@ -19,8 +19,8 @@ public class UserController {
         return userService.createUser(request);
     }
 
-    @GetMapping
-    public UserResponse getByEmail(@RequestParam String email) {
+    @GetMapping("/{email}")
+    public UserResponse getByEmail(@PathVariable String email) {
         return userService.getUserByEmail(email);
     }
 }
